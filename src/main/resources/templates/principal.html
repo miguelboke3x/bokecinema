@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="estilo.css">
+    <title>Boke FILMS</title>
+</head>
+<body>
+    
+    <div id="box">
+        <header class="cabe">
+            <form>
+                <button class="imp" type="submit">Buscar</button>
+                <input class="imp"  type="text" name="buscar" placeholder="Buscar y pulse enter">
+
+            </form>
+               
+            <img class="image" src="./image/logo.png" alt="logo" width="200px">
+                     
+        </header>
+        
+        <nav >
+            <ul >
+                <li class="multicolortext">Comedia</li>
+                <li class="multicolortext">Ciencia Ficcion</li>
+                <li class="multicolortext">Fantacia</li>
+                <li class="multicolortext">Terror</li>
+                <LI class="multicolortext">Drama</LI>
+                <li class="multicolortext">Familiar</li>
+            </ul>
+        </nav>
+        <main id="main">
+            <section class="cards" >
+                <article class="card" th:each="peliculas: ${tipos_peliculas}" >
+                    <div>
+                        <img th:src="${peliculas.imagen}" width='100px'/>
+                    </div>
+                    <div class="nombre-titulo">
+                       <span th:text="${peliculas.titulo}"></span>
+                    </div>
+                    <div class="nombre-producto" style="font-size: 0.9em; color: darkgoldenrod;">
+                        <span th:text="${peliculas.sinopsis}"></span>
+                    </div>
+                    <div class="precio-producto">
+                        <span th:text="${peliculas.anyoestreno}"></span>
+                    </div>
+                </article><!-- /card-one -->
+                
+            </section>
+        </main>
+    </div>
+    <footer>
+        <nav>
+            <ul>
+                <li class="multicolortext">Contacto</li>
+                <li class="multicolortext">Quienes somos</li>
+                <li class="multicolortext">Trabaja con nosotros</li>
+                <li class="multicolortext">Aviso legal</li>
+            </ul>
+        </nav>
+        <img class="redes" src="./image/facebook.webp" alt="facebook" width="50px"  > Facebook
+        <img class="redes" src="./image/instagram.webp" alt="instagram" width="50px"> Instagram
+        <img class="redes" src="./image/twitter.webp" alt="Twitter" width="50px"> twitter
+        <img class="redes" src="./image/what.webp" alt="what" width="50px"> whatssapp
+
+        <p class="precio-producto">©BokeFilms  2022</p>
+    </footer>
+</body>
+</html>

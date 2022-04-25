@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>crear peliculas</title>
+</head>
+<body>
+    <h1>Peliculas</h1>
+	<p th:text="${nombre}">xx</p>
+    <div>
+        <table>
+            <tr>
+                <th>Identificador</th>
+                <th>Titulo</th>
+                <th>Sinopsis</th>
+                <th>Año estreno</th>
+                <th>Imagen</th>
+                <th>video</th>
+                <th>borrar</th>
+            </tr>
+            <tr th:each="peliculas: ${tipos_peliculas}">
+    			<td th:text="${peliculas.identificador}" />
+    			<td th:text="${peliculas.titulo}" />
+    			<td th:text="${peliculas.sinopsis}" />
+				<td th:number="${peliculas.anyoestreno}" />
+				<td>
+    				<img th:src="${peliculas.imagen}" width='100px'/>
+  				</td> 				
+				<td th:text="${peliculas.video}" />	
+    			<td><a th:href="@{borrarPeliculass(id=${peliculas.identificador})}">Borrar</a></td>
+    			<td>Modificar</td>
+			</tr>
+        </table>
+    </div>
+    <div>
+        <form method="get" action="/crearPeliculas">
+            <input type="text" name="titulo" placeholder="Nombre del titulo">
+            <input type="text" name="sinopsis" placeholder="sinopsis">
+            <input type="number" name="anyoestreno" placeholder="año de estreno">
+            <input type="text" name="imagen" placeholder="imagen">  
+            <input type="text" name="video" placeholder="videos">
+            
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+</body>
+</html>
